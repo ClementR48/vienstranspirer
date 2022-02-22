@@ -1,4 +1,5 @@
 import React from 'react';
+import Navbar from '../components/Navbar';
 
 interface HomeProps {
 
@@ -6,8 +7,10 @@ interface HomeProps {
 
 const Home = () => {
   return (
-    <div>
-      Home Page
+    <div className='home_page'>
+      <Navbar />
+      
+      <h1>home page</h1>
     </div>
   );
 };
