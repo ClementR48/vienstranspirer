@@ -1,15 +1,20 @@
 import "./Navbar.scss";
 import { Link } from "react-router-dom";
 import { useState, FunctionComponent } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { bindActionCreators } from "redux";
+import { actionCreator, State } from "../redux";
+
+
 
 const Navbar: FunctionComponent = () => {
-  const [openMenu, setOpenMenu] = useState<boolean>(false);
 
-  console.log(openMenu);
+  const dispatch = useDispatch();
 
-  const buttonMenu = (event: React.MouseEvent<HTMLButtonElement>) => {
-    setOpenMenu(!openMenu);
-  };
+  const { openMenu } = bindActionCreators(actionCreator, dispatch);
+  
+
+  
 
   return (
     <header className="navbar">
@@ -20,6 +25,10 @@ const Navbar: FunctionComponent = () => {
       </div>
       <nav className="nav">
         <ul>
+          <div className="link">
+            <Link to="/">Evenements</Link>
+            <span></span>
+          </div>
           <div className="link">
             <Link to="/create-event">Créer ton evenement</Link>
             <span></span>
@@ -42,7 +51,7 @@ const Navbar: FunctionComponent = () => {
         <Link className="desktop-profil" to="/profil">
           Clément
         </Link>
-        <button onClick={buttonMenu} className="mobile-profil">
+        <button onClick={() => openMenu()}  className="mobile-profil">
           C
         </button>
       </div>

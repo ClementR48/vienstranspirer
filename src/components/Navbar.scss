@@ -4,6 +4,7 @@
   height: 80px;
   background-color: $secondBlackColor;
   position: relative;
+  z-index: 100;
 
   .title {
     position: absolute;
@@ -57,6 +58,12 @@
       padding: 10px;
       display: none;
       font-size: 16px;
+      cursor: pointer;
+
+      &:hover{
+        background-color: $yellowColor;
+        color: $secondBlackColor;
+      }
 
       @include desktop{
         display: block;
